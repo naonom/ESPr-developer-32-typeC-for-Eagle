@@ -1,0 +1,30 @@
+name: A job to draw lbr design
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'imgs'
+
+jobs:
+  drawing_jobs:
+    runs-on: ubuntu-latest
+    name: A job to draw lbr design
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: drawing
+        uses: botamochi6277/EagleDrawer@main
+      - name: build pages
+        uses: botamochi6277/reactjs-gallery-action@main
+      - name: git setting
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+        run: |
+          git config --local user.email "action_runner@users.noreply.github.com"
+          git config --local user.name "action runner"
+      - name: Commit and push files
+        run: |
+          git checkout -b gh-pages
+          git add .
+          git commit -m "build pages" -a
+          git push origin HEAD:gh-pages --force
