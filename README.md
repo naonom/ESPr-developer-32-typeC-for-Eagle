@@ -1,6 +1,7 @@
 # ESPr-developer-32-typeC-for-Eagle
 eagle library for ESPr-developer-32-typeC
 
+https://www.switch-science.com/products/7235
 
 ## Device & Symbol
 <img width="479" alt="スクリーンショット 2023-03-22 21 56 34" src="https://user-images.githubusercontent.com/39935914/226915942-c14cd604-2f99-4d41-8c8b-8d962038e709.png">
